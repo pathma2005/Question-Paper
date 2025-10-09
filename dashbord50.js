@@ -200,30 +200,28 @@ const partAQuestions = [
             questionElement.textContent = `${index + 1}. ${questions[index]}`;
             sectionElement.appendChild(questionElement);
             index++;
-            setTimeout(showNextQuestion, 1000); // Delay of 0.1 second between questions
+            setTimeout(showNextQuestion, 1000);
           }
         }
 
-        showNextQuestion(); // Start displaying questions
+        showNextQuestion(); 
       }
 
       function generateQuestionPaper() {
-        // Shuffle questions within their respective sections only
+       
         shuffleArray(partAQuestions);
         shuffleArray(partBQuestions);
         shuffleArray(partCQuestions);
 
-        // Select questions for each section
-        const selectedPartA = partAQuestions.slice(0, 7); // 7 questions for Section A (3 Marks)
-        const selectedPartB = partBQuestions.slice(0, 5); // 5 questions for Section B (6 Marks)
-        const selectedPartC = partCQuestions.slice(0, 4); // 4 questions for Section C (10 Marks)
+        const selectedPartA = partAQuestions.slice(0, 7); 
+        const selectedPartB = partBQuestions.slice(0, 5); 
+        const selectedPartC = partCQuestions.slice(0, 4); 
 
-        // Clear previous content
         document.getElementById("section-a").innerHTML = "";
         document.getElementById("section-b").innerHTML = "";
         document.getElementById("section-c").innerHTML = "";
 
-        // Display questions under respective sections
+       
         displayQuestions(
           "section-a",
           selectedPartA,
@@ -237,7 +235,7 @@ const partAQuestions = [
             "SECTION - B (3 X 5 = 15 MARKS)",
             "(Answer Any Three Questions)"
           );
-        }, (selectedPartA.length + 2) * 1000); // Delay after Section A
+        }, (selectedPartA.length + 2) * 1000);
         setTimeout(() => {
           displayQuestions(
             "section-c",
@@ -245,5 +243,5 @@ const partAQuestions = [
             "SECTION - C (2 X 10 = 20 MARKS)",
             "(Answer Any Two Questions)"
           );
-        }, (selectedPartA.length + selectedPartB.length + 4) * 1000); // Delay after Section B
+        }, (selectedPartA.length + selectedPartB.length + 4) * 1000); 
       }
