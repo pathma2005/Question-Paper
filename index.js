@@ -71,6 +71,6 @@
             } else if (selectedExamType === "Model" || selectedExamType === "Semester" && selectedMarks == 100) {
                 window.location.href = "dashboard100.html";
             } else {
-                alert("Please select both Exam Type and Marks.");
+                alert("plese select the correct Exam type and mark 50Marks for midterm and 100 marks for model");
             }
         }
