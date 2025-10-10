@@ -64,13 +64,16 @@
             });
             container.style.display = "block";
         }
-
         function generateQuestionPaper() {
-            if (selectedExamType === "Midterm" && selectedMarks == 50) {
-                window.location.href = "dashboard50.html";
-            } else if (selectedExamType === "Model" || selectedExamType === "Semester" && selectedMarks == 100) {
-                window.location.href = "dashboard100.html";
-            } else {
-                alert("“Please select the correct exam type and choose 50 marks for Midterm or 100 marks for Model Exam.”");
-            }
-        }
+    if (!selectedStream || !selectedDepartment || !selectedExamType || !selectedMarks) {
+        alert("Please select all options: Stream, Department, Exam Type, and Marks before generating the question paper.");
+        return; 
+    }
+    if (selectedExamType === "Midterm" && selectedMarks == 50) {
+        window.location.href = "dashboard50.html";
+    } else if ((selectedExamType === "Model" || selectedExamType === "Semester") && selectedMarks == 100) {
+        window.location.href = "dashboard100.html";
+    } else {
+        alert("Please select the correct exam type and choose 50 marks for Midterm or 100 marks for Model Exam.");
+    }
+}
