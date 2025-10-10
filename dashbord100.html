@@ -26,8 +26,8 @@
         .question {
             margin-bottom: 10px;
             font-size: 16px;
-            opacity: 0; /* Initially hidden */
-            animation: fadeIn 0.5s forwards; /* Fade-in animation */
+            opacity: 0; 
+            animation: fadeIn 0.5s forwards; 
         }
         @keyframes fadeIn {
             to {
@@ -43,7 +43,7 @@
             cursor: pointer;
             border-radius: 5px;
             margin-top: 20px;
-            position: fixed; /* Fixed position at the bottom */
+            position: fixed;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
@@ -61,17 +61,13 @@
         <p><strong>Subject:</strong> Design and Analysis of Algorithms</p>
         <p><strong>Max Marks:</strong> 100</p>
         <p><strong>Time:</strong> 3 Hour</p>
-
-        <!-- Sections for dynamically generated questions -->
         <div id="section-a"></div>
         <div id="section-b"></div>
         <div id="section-c"></div>
     </div>
-
-    <!-- Generate Button at the Bottom -->
     <button class="generate-btn" onclick="generateQuestionPaper()">Generate Question Paper</button>
 
-    <script src="dashboard100.js">
+    <script src="dashbord100.js">
     </script>
 </body>
 </html>
