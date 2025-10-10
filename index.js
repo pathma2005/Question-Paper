@@ -70,12 +70,13 @@ function generateQuestionPaper() {
         alert("Please select all options before generating the question paper.");
         return; 
     }
-    if (selectedExamType === "Midterm" && selectedMarks == 50) {
+     if (selectedExamType === "Midterm" && selectedMarks == 50) {
         window.location.href = "dashboard50.html";
-    } else if (selectedExamType === "Model" || selectedExamType === "Semester" && selectedMarks == 100) {
+    } else if ((selectedExamType === "Model" && selectedMarks == 100) || 
+               (selectedExamType === "Semester" && selectedMarks == 100)) {
         window.location.href = "dashboard100.html";
     } else {
-        alert("“Please select the correct exam type and choose 50 marks for Midterm or 100 marks for Model Exam.”");
+        alert("Invalid selection!\n- Midterm = 50 marks\n- Model = 100 marks\n- Semester = 100 marks");
     }
 }
 
