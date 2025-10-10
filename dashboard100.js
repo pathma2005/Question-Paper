@@ -100,29 +100,25 @@
             "Construct an expression tree for the expression (a + b * c) +((d * e + 1) * g). Give the outputs when you apply preorder, inorder and postorder traversals.",
             "Explain the various representation of graph with example in detail."
         ];
-
-        // Function to shuffle array
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [array[i], array[j]] = [array[j], array[i]];
             }
         }
-
-        // Function to display questions with a delay
         function displayQuestions(elementId, questions, delay, sectionTitle, instruction) {
             const sectionElement = document.getElementById(elementId);
-            sectionElement.innerHTML = `<h3>${sectionTitle}</h3><p>${instruction}</p>`; // Add section heading and instruction
+            sectionElement.innerHTML = `<h3>${sectionTitle}</h3><p>${instruction}</p>`; 
             let index = 0;
 
             function showNextQuestion() {
                 if (index < questions.length) {
                     const questionElement = document.createElement("p");
                     questionElement.className = "question";
-                    questionElement.textContent = `${index + 1}. ${questions[index]}`; // Add question number
+                    questionElement.textContent = `${index + 1}. ${questions[index]}`; 
                     sectionElement.appendChild(questionElement);
                     index++;
-                    setTimeout(showNextQuestion, delay); // Delay between questions
+                    setTimeout(showNextQuestion, delay);
                 }
             }
 
@@ -130,20 +126,13 @@
         }
 
         function generateQuestionPaper() {
-            // Shuffle all questions
             shuffleArray(allQuestions);
-
-            // Split questions into sections
-            const sectionAQuestions = allQuestions.slice(0, 40); // First 40 questions (3 marks)
-            const sectionBQuestions = allQuestions.slice(40, 70); // Next 30 questions (6 marks)
-            const sectionCQuestions = allQuestions.slice(70, 100); // Last 30 questions (10 marks)
-
-            // Clear previous content
+            const sectionAQuestions = allQuestions.slice(0, 40); 
+            const sectionBQuestions = allQuestions.slice(40, 70); 
+            const sectionCQuestions = allQuestions.slice(70, 100); 
             document.getElementById("section-a").innerHTML = "";
             document.getElementById("section-b").innerHTML = "";
             document.getElementById("section-c").innerHTML = "";
-
-            // Display questions with a delay
             displayQuestions("section-a", sectionAQuestions.slice(0, 12), 500, "SECTION - A (10 X 3 = 30 MARKS)", "(Answer Any Ten Questions)");
             setTimeout(() => displayQuestions("section-b", sectionBQuestions.slice(0, 7), 500, "SECTION - B (5 X 6 = 30 MARKS)", "(Answer Any Five Questions)"), sectionAQuestions.slice(0, 12).length * 500 + 500); // Delay for Section B
             setTimeout(() => displayQuestions("section-c", sectionCQuestions.slice(0, 6), 500, "SECTION - C (4 X 10 = 40 MARKS)", "(Answer Any Four Questions)"), (sectionAQuestions.slice(0, 12).length + sectionBQuestions.slice(0, 7).length) * 500 + 1000); // Delay for Section C
